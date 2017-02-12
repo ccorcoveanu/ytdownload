@@ -1,0 +1,222 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', 'sans-serif', 'Arial';
+  color: $color_default;
+}
+
+.logo-container .logo {
+  float: left;
+}
+.logo-container .logo img {
+  width: 100%;
+}
+
+.logo-container .brand {
+  font-size: 16px;
+  color: #FFFFFF;
+  line-height: 18px;
+  float: left;
+  margin-left: 10px;
+  margin-top: 7px;
+  width: 70px;
+  height: 40px;
+  text-align: left;
+}
+
+.presentation .front, .presentation .front:after, .presentation .front .btn, .logo-container .logo, .logo-container .brand {
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
+
+/** Sfarsitu' cacatului */
+
+.hero__container {
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.hero__container--filter {
+  background: url('/ytheme/assets/img/music2.jpg') top 50px left 0 ;
+  background-size: cover;
+}
+
+.hero__container--filter::after {
+  background: linear-gradient(45deg, rgba(120, 14, 37, .9) 0%, rgba(120, 14, 37, .7) 100%);
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+  left: 0;
+  top: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.headlines {
+  margin-top: 30vh;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+.logo__headline {
+  font-size: rem(50);
+  line-height: rem(50);
+  color: $color_transparent;
+  transition: color .2s ease;
+}
+
+.text-raised::before {
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.30);
+}
+
+
+.navbar {
+  will-change: opacity;
+
+  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
+
+}
+
+.navbar.navbar-transparent .logo-container .brand {
+  color: $color_transparent;
+  transition: color .2s ease;
+}
+
+.navbar.navbar-transparent {
+  background-color: rgba(255,255,255,.05);
+  box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.42), 0 3px 20px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  color: $color_transparent;
+  padding-top: 10px;
+}
+
+.navbar.navbar-transparent .navbar-nav a {
+  transition: color .2s ease;
+}
+
+.navbar.navbar-transparent .navbar-nav a:hover {
+  color: #fff;
+}
+
+.navbar.navbar-transparent .logo-container {
+  &:hover {
+    .brand,
+    .logo__headline {
+      color: #fff;
+    }
+  }
+}
+
+.wrapper--main {
+  position: relative;
+  margin-bottom: -85px;
+}
+
+.wrapper--app {
+
+  color: $color-default;
+  z-index: 2;
+  background-color: #fff;
+
+  .wrapper--app__header {
+    color: #fff;
+    background-color: #670c1f;
+    z-index: 2;
+    box-shadow: 10px 0 20px -12px rgba(0, 0, 0, 0.42), 3px 0 20px 0px rgba(0, 0, 0, 0.12), 8px 0 10px -5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    height: 85px;
+
+    &:after {
+      background-color: #670c1f;
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    .icon__container {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto -20px auto;
+      border-radius: 50%;
+      text-align: center;
+      transform: translateY(-50%);
+      background-color: #670c1f;
+      z-index: 1;
+      box-shadow: 10px 0 20px -12px rgba(0, 0, 0, 0.42), 3px 0 20px 0px rgba(0, 0, 0, 0.12), 8px 0 10px -5px rgba(0, 0, 0, 0.2);
+    }
+
+    .actual-icon__container {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      text-align: center;
+      transform: translateY(-50%);
+      background: transparent;
+      position: absolute;
+      left: calc(50% - 30px);
+      top: 0;
+      z-index: 2;
+      user-select: none;
+
+      i {
+        font-size: 40px;
+        line-height: 60px;
+        cursor: pointer;
+      }
+
+      a {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        display: inline-block;
+        color: #fff;
+      }
+
+      .ripple-container {
+        z-index: 3;
+      }
+    }
+  }
+
+  .wrapper--app__content {
+    background-color: #fff;
+  }
+}
+
+.searchbox {
+  position: relative;
+  z-index: 2;
+  height: 45px;
+  background: #fff;
+}
+
+.searchbox__textfield {
+  height: 40px;
+  width: 100%;
+  border: none;
+  color: $color_default;
+  box-shadow: 0 10px 20px -12px rgba(0,0,0,.42), 0 3px 20px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+  text-align: center;
+}
+
+
+

@@ -1,0 +1,6 @@
+.idea/
+.vagrant/
+log/
+vendor/
+node_modules/
+.env

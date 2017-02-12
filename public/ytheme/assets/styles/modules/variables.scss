@@ -1,0 +1,22 @@
+// Name: Gulp variables
+
+// !Colors
+// ==|=========================================================================
+$color_blue: #00c4cc;
+$color_default: #404040;
+$color_transparent: rgba(255, 255, 255, .2);
+// !Typography
+// ==|=========================================================================
+$font_family-default: 'Roboto', sans-serif;
+
+$font-size-base: 100%;
+$font-size-base-px: 16px;
+
+// ! Remify & Emify values
+// ==|=========================================================================
+@function rem($value) {
+  @return #{$value/16}rem;
+}
+@function em($value) {
+  @return #{$value/16}em;
+}
