@@ -202,6 +202,16 @@ body {
   }
 }
 
+.navbar,
+.navbar.navbar-default {
+  color: $color_transparent;
+  background-color: #670c1f;
+}
+
+.logo-container .brand {
+  color: $color_transparent;
+}
+
 .searchbox {
   position: relative;
   z-index: 2;
@@ -216,6 +226,10 @@ body {
   color: $color_default;
   box-shadow: 0 10px 20px -12px rgba(0,0,0,.42), 0 3px 20px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
   text-align: center;
+}
+
+.youtube-items__container {
+  margin-top: 40px;
 }
 
 

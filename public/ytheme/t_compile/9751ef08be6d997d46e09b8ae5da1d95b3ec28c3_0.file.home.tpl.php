@@ -1,41 +1,42 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-02-11 16:17:50
+/* Smarty version 3.1.31, created on 2017-02-12 16:12:09
   from "/var/www/default/public/ytheme/home.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_589f392e8e9d48_20199245',
+  'unifunc' => 'content_58a08959130d17_65019776',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9751ef08be6d997d46e09b8ae5da1d95b3ec28c3' => 
     array (
       0 => '/var/www/default/public/ytheme/home.tpl',
-      1 => 1486827991,
+      1 => 1486915928,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:lists/youtube_items.tpl' => 1,
   ),
 ),false)) {
-function content_589f392e8e9d48_20199245 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58a08959130d17_65019776 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_817617540589f392e8e8190_20954521', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_92781822458a08959127989_83207906', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'layout/main.tpl');
 }
 /* {block 'content'} */
-class Block_817617540589f392e8e8190_20954521 extends Smarty_Internal_Block
+class Block_92781822458a08959127989_83207906 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_817617540589f392e8e8190_20954521',
+    0 => 'Block_92781822458a08959127989_83207906',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -65,7 +66,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             </form>
         </div>
         <div class="wrapper--app__content">
-            dada
+            <div class="youtube-items__container container">
+                <?php $_smarty_tpl->_subTemplateRender('file:lists/youtube_items.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
+            </div>
+
         </div>
     </div>
 <?php

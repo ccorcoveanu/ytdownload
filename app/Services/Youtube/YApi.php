@@ -1,4 +1,8 @@
 <?php
+namespace App\Services\Youtube;
+
+use GuzzleHttp\Client;
+
 class YApi
 {
     /**
@@ -7,23 +11,34 @@ class YApi
     protected $key = 'AIzaSyCJ0NaWuUeFPmw3tRwJRBWscwDE2YAFKNw';
     protected $baseUrl = 'https://www.googleapis.com/youtube/v3';
 
+    protected $client;
+
     /**
      * YApi constructor.
-     * @param $curlClient
+     * @param Client $client
      * @param array $settings
      */
-    public function __construct($curlClient, array $settings = [])
+    public function __construct(Client $client, array $settings = [])
     {
         if ( isset($settings['key']) ) $this->key = $settings['key'];
+        $this->client = $client;
     }
 
     /**
-     * @param $url
+     * @param $playlistId
      *
      * @return array
      */
-    public function getPlaylistInfo($url)
+    public function getPlaylistInfo($playlistId)
     {
+        $youtubeInfo = $this->client->request('GET', 'playlistItems', [
+            'query' => [
+                'key' => $this->key,
+                'part' => 'snippet,contentDetails',
+                'playlistId' => $playlistId
+            ],
+        ]);
 
+        return json_decode($youtubeInfo->getBody());
     }
 }

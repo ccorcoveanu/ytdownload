@@ -25,6 +25,12 @@ $container['view'] = function ($container) {
     return $view;
 };
 
+// Services dependencies
+$container['YApi'] = function ($container) {
+    return new App\Services\Youtube\YApi(new GuzzleHttp\Client([ 'base_uri' => 'https://www.googleapis.com/youtube/v3/' ]));
+};
+
+
 // Site Controller dependencies
 $container['Home'] = function ($container) {
     return new App\Site\Home($container->get('view'));
@@ -33,4 +39,8 @@ $container['Home'] = function ($container) {
 // API Controller dependencies
 $container['Debug'] = function ($container) {
     return new App\Api\Debug();
+};
+
+$container['Youtube'] = function ($container) {
+    return new App\Api\Youtube($container->get('YApi'), $container->get('view'));
 };

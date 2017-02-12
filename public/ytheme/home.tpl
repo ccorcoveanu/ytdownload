@@ -24,7 +24,10 @@
             </form>
         </div>
         <div class="wrapper--app__content">
-            dada
+            <div class="youtube-items__container container">
+                {include file='lists/youtube_items.tpl'}
+            </div>
+
         </div>
     </div>
 {/block}

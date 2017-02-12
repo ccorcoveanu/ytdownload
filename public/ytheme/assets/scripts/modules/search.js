@@ -5,7 +5,7 @@ class Search
   constructor () {
     this.searchText = '';
     this.searchInput = document.querySelector('.js-searchbox__textfield');
-    this.searchButton = document.querySelector('.js-searchbox__button');
+    this.searchButton = document.querySelector('.js-search__button');
 
     this.state = {};
     this.isSearching = false;

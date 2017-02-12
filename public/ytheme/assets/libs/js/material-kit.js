@@ -20,6 +20,7 @@ var transparentDemo = true;
 var fixedTop = false;
 
 var navbar_initialized = false;
+var heroHeight = $('.wrapper--main').outerHeight();
 
 $(document).ready(function(){
 
@@ -57,7 +58,8 @@ materialKit = {
     },
 
     checkScrollForTransparentNavbar: debounce(function() {
-            if($(document).scrollTop() > 260 ) {
+            console.log();
+            if($(document).scrollTop() > (heroHeight - 170) ) {
                 if(transparent) {
                     transparent = false;
                     $('.navbar-color-on-scroll').removeClass('navbar-transparent');
