@@ -24,10 +24,14 @@
             </form>
         </div>
         <div class="wrapper--app__content">
+            {include file='partials/loader.tpl'}
+            <div class="shared-content__container container"></div>
+            {include file='partials/video-actions.tpl'}
             <div class="youtube-items__container container">
-                {include file='lists/youtube_items.tpl'}
+
             </div>
 
         </div>
     </div>
+    {if $page.playlist_route}<iframe style="display: none" src="yt-dl/{$page.playlist_route}"></iframe>{/if}
 {/block}

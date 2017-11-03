@@ -22,5 +22,8 @@
     "material-ui": "^0.16.7",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "node-fetch": "^1.7.2"
   }
 }

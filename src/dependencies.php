@@ -44,3 +44,7 @@ $container['Debug'] = function ($container) {
 $container['Youtube'] = function ($container) {
     return new App\Api\Youtube($container->get('YApi'), $container->get('view'));
 };
+
+$container['Ads'] = function ($container) {
+    return new App\Api\Ads($container->get('view'));
+};

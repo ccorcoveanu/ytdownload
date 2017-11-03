@@ -35,7 +35,8 @@ class YApi
             'query' => [
                 'key' => $this->key,
                 'part' => 'snippet,contentDetails',
-                'playlistId' => $playlistId
+                'playlistId' => $playlistId,
+                'maxResults' => 50
             ],
         ]);
 

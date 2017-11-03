@@ -18,10 +18,10 @@ gulp.task('js', function () {
     .bundle()
     .pipe(source('app.js'))
     .pipe(buffer())
-    .pipe(sourcemaps.init())
-    .pipe(uglify())
-    .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest('./assets/build'));
+    //.pipe(uglify())
+    .pipe(gulp.dest('./assets/build'))
+    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(sourcemaps.write('./maps'));
 });
 
 gulp.task('scss', function() {

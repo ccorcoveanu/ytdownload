@@ -5,6 +5,9 @@
 $color_blue: #00c4cc;
 $color_default: #404040;
 $color_transparent: rgba(255, 255, 255, .2);
+$color_purple: #9c27b0;
+
+$color_success: #55b559;
 // !Typography
 // ==|=========================================================================
 $font_family-default: 'Roboto', sans-serif;
@@ -19,4 +22,12 @@ $font-size-base-px: 16px;
 }
 @function em($value) {
   @return #{$value/16}em;
+}
+
+// ! Some custom mixins
+// ==|=========================================================================
+@mixin below($width) {
+  @include breakpoint(max-width $width){
+    @content;
+  }
 }

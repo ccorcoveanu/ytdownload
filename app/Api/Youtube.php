@@ -18,6 +18,8 @@ class Youtube extends ApiBase
      */
     protected $view;
 
+    protected $playlistUrl = 'https://youtube.com/playlist?list=';
+
     public function __construct(YApi $yApi, Smarty $view)
     {
         $this->yApi = $yApi;
@@ -35,14 +37,37 @@ class Youtube extends ApiBase
 
         $items = $this->yApi->getPlaylistInfo($youtubeId);
 
-        if ( $type === 'html' ) {
-            $data = $this->view->fetch('lists/youtube_items.tpl', [
-                'youtube_items' => $items->items
-            ]);
-        }
-
         return $response->withJson(
-            $this->success(['html' => $data])
+            $this->success([
+                'items' => $items->items,
+                'html' => $this->view->fetch('lists/youtube_items.tpl', [
+                    'youtube_items' => $items->items
+                ])
+            ])
         );
+    }
+
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @param $args
+     * @return Response
+     */
+    public function download(Request $request, Response $response, $args)
+    {
+        set_time_limit(0);
+
+        $playlistId = $request->getParam('playlist_id', '');
+        $all_items  = $request->getParam('all_items', []);
+        $all_items = array_slice($all_items, 0, 5);
+
+        $command = 'youtube-dl --extract-audio --audio-format mp3 -ci -o "yt-dl/' . $playlistId . '/%(title)s-%(id)s.%(ext)s"' .
+            ' --playlist-items ' . implode(',', $all_items) . ' '.
+            $this->playlistUrl . $playlistId;
+
+        exec($command);
+        exec("tar -C ./yt-dl -zcvf yt-dl/$playlistId.tar.gz $playlistId");
+
+        return $response->withRedirect("/?playlist=$playlistId");
     }
 }

@@ -1,47 +1,45 @@
-.youtube-item {
+.youtube-items__container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  &.container {
+    &:before {
+      content: none;
+    }
+    &:after {
+      content: none;
+    }
+  }
+
+}
+.youtube-item {
+  display: inline-block;
   margin-bottom: rem(30);
+  width: 368px;
+  position: relative;
+  overflow: hidden;
+  border: 4px solid #fff;
+  cursor: pointer;
+
+  .checkbox-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(1, 1, 1, .4);
+    opacity: 0;
+    transform: scale(0);
+    transition: transform .3s cubic-bezier(0,0,.3,1);
+    will-change: transition,opacity;
+  }
 
   .youtube-item__image {
-    width: 320px;
-    height: 180px;
+    width: 360px;
     overflow: hidden;
     position: relative;
-
-    &:before,
-    &:after {
-      content: '';
-      position: absolute;
-      z-index: 2;
-
-      transition: transform .2s cubic-bezier(0,0,.3,1);
-    }
-
-    &:before {
-
-      bottom: 0;
-      right: 0;
-      width: 0;
-      height: 0;
-      border-left: 600px solid transparent;
-      border-right: 0 solid transparent;
-      border-bottom: 40px solid rgba(255,255,255, .7);
-    }
-
-    &:after {
-
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 0;
-      border-right: 600px solid transparent;
-      border-left: 0 solid transparent;
-      border-top: 40px solid rgba(255,255,255, .7);
-
-    }
 
     img {
       max-width: 100%;
@@ -51,30 +49,55 @@
   }
 
   .youtube-item__text {
-    max-width: 55%;
-    padding-right: 70px;
+    position: absolute;
+    bottom: rem(40);
+    left: 0;
+    width: 100%;
+    transform: translateY(rem(70));
+    will-change: transform;
+    transition: transform .3s cubic-bezier(0,0,.3,1);
+    z-index: 2;
+
 
     h1 {
       font-size: rem(24);
       line-height: rem(30);
-      margin: 0 rem(10) 0 0;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      padding: 0 rem(15);
+      max-width: 100%;
+      overflow: hidden;
     }
   }
 
-  .youtube-item__actions {
-    width: 50px;
+  &.checked {
+    border: 4px solid $color_purple;
   }
 
   &:hover {
-    .youtube-item__image {
-      &:before {
-        transform: translateY(50px);
-      }
-
-      &:after {
-        transform: translateY(-50px);
-      }
+    .checkbox-overlay {
+      transform: scale(1);
+      opacity: 1;
     }
 
+    .youtube-item__text {
+      transform: translateY(0);
+    }
+  }
+}
+
+.checkbox-overlay {
+
+  .checkbox {
+    position: absolute;
+    top: calc(50% - 10px);
+    left: calc(50% - 10px);
+    margin: 0;
+    .check {
+      background: #fff;
+    }
   }
 }

@@ -28,10 +28,16 @@ class Home
      */
     public function index(Request $request, Response $response)
     {
+        $playlist = $request->getParam('playlist');
+        $playlist_route = '';
+        if ( $playlist ) {
+            $playlist_route = $playlist . '.tar.gz';
+        }
         return $this->view->render($response, 'home.tpl', [
             'page' => [
                 'title' => 'Home',
-                'body_classes' => 'home'
+                'body_classes' => 'home',
+                'playlist_route' => $playlist_route
             ]
         ]);
     }

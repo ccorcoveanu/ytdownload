@@ -1,16 +1,19 @@
-{for $foo=1 to 10}
-    <article class="youtube-item">
+{foreach name='youtube_items' item=item from=$youtube_items}
+    <article class="youtube-item checked" data-id="{$item->snippet->resourceId->videoId}"
+        data-position="{$item->snippet->position}">
         <div class="youtube-item__image img-raised">
-            <img src="https://i.ytimg.com/vi/68EmzBpAj9E/mqdefault.jpg" class="" />
+            <img src="{$item->snippet->thumbnails->high->url}" class="" />
         </div>
 
         <div class="youtube-item__text">
-            <h1>Soulfly-Refuse/Resist</h1>
-            <p>Chaos A.D. Tanks On The Streets Confronting Police Bleeding The Plebs Raging Crowd Burning Cars </p>
+            <h1>{$item->snippet->title}</h1>
         </div>
-
-        <div class="youtube-item__actions">
-            Actions
+        <div class="checkbox-overlay">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="video-{$item->snippet->position}" checked>
+                </label>
+            </div>
         </div>
     </article>
-{/for}
+{/foreach}

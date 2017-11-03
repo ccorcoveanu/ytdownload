@@ -31,6 +31,7 @@
         <script defer src="/ytheme/assets/libs/js/bootstrap.min.js" type="text/javascript"></script>
         <script defer src="/ytheme/assets/libs/js/material.min.js"></script>
         <script defer src="/ytheme/assets/libs/js/material-kit.js" type="text/javascript"></script>
+        <script defer src="/ytheme/assets/libs/js/bootstrap.notify.js" type="text/javascript"></script>
         <script defer src="/ytheme/assets/build/app.js"></script>
     {/block}
 </body>

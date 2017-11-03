@@ -12,6 +12,9 @@ body {
 
 .logo-container .logo {
   float: left;
+  @include below(768px) {
+    margin-left: 15px;
+  }
 }
 .logo-container .logo img {
   width: 100%;
@@ -47,6 +50,10 @@ body {
 .hero__container--filter {
   background: url('/ytheme/assets/img/music2.jpg') top 50px left 0 ;
   background-size: cover;
+  @include below(1450px) {
+    background: url('/ytheme/assets/img/music2.jpg') center center;
+    background-size: auto 100%;
+  }
 }
 
 .hero__container--filter::after {
@@ -199,6 +206,10 @@ body {
 
   .wrapper--app__content {
     background-color: #fff;
+
+    .loader.-visible {
+      margin-top: 15px;
+    }
   }
 }
 
@@ -216,7 +227,6 @@ body {
   position: relative;
   z-index: 2;
   height: 45px;
-  background: #fff;
 }
 
 .searchbox__textfield {
@@ -229,7 +239,24 @@ body {
 }
 
 .youtube-items__container {
-  margin-top: 40px;
+  margin-top: 20px;
+}
+
+.video-actions__container {
+  text-align: center;
+  transition: height .3s cubic-bezier(0,0,.3,1);
+  overflow: hidden;
+  margin-top: 20px;
+
+  &.-hidden {
+    height: 0;
+    margin: 0;
+  }
+}
+
+#select-all,
+#deselect-all {
+  width: rem(141);
 }
 
 
